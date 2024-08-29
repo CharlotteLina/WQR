@@ -1,0 +1,49 @@
+<!-- Page de génération de rapport  -->
+<div class ="page">
+
+    <div *ngIf="report$ | async as report">
+        <button class="pdfHeaderButton"  (click)="openDialog(report)" [title]="'generatePDF'|translate"><mat-icon>picture_as_pdf</mat-icon></button>
+    </div>
+
+
+    <div class="homeTitle titleReport"> {{'report'|translate}}  {{type|translate}}  </div>
+
+    <div class="routes">
+        <a [routerLink]='environment.homePath'> {{'dashboard'|translate}}</a>&nbsp;/&nbsp;
+        <a [routerLink]='environment.generatePath'> {{'generateReport'|translate}}</a>&nbsp;/&nbsp;
+        <ng-container *ngIf="type!='météo'">
+            <a routerLink="/generate/report" [queryParams]="queryParamsWeather" class="weatherReport"> {{'report'|translate}} {{'weatherTypeLowerCase'|translate}}</a>&nbsp;/&nbsp;
+        </ng-container>
+        <span class="currentRoute">{{'report'|translate}} {{type|translate}}</span>
+        <button class="previous fas fa-reply"  title="Précédent" (click)="previous()"></button>
+    </div>
+
+        <div *ngIf="report$ | async as report">
+            <mat-tab-group animationDuration="500ms" class="parent-tab-group mainTab" [selectedIndex]="selectedIndex"  (selectedTabChange)="changeTab($event)">
+                <mat-tab [label]="'weatherType'|translate">
+                    <div class="aTab" *ngIf="type==environment.weatherTypeLowerCase">
+                        <app-generate-report-display-weather [report]="report" (navigateReport)="changeType($event)" (navigateReportDetail)="goDetail($event)"></app-generate-report-display-weather>
+                   </div>
+                </mat-tab>
+                <mat-tab [label]="'buildType'|translate">
+                    <div class="aTab" *ngIf="type==environment.buildTypeLowerCase">
+                        <app-generate-report-display-build [report]="report" ></app-generate-report-display-build>
+                    </div>
+                </mat-tab>
+                <mat-tab [label]="'deployType'|translate">
+                    <div class="aTab" *ngIf="type==environment.deployTypeLowerCase">
+                        <app-generate-report-display-deploy [report]="report"></app-generate-report-display-deploy>
+                    </div>
+                </mat-tab>
+                <mat-tab [label]="'testTypeBis'|translate ">
+                    <div class="aTab" *ngIf="type==environment.testTypeLowerCase">
+                        <app-generate-report-display-test [report]="report"></app-generate-report-display-test>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+            <div class="footerButton">
+                <button class="pdfFooterButton"  (click)="openDialog(report)" [title]="'generatePDF'|translate">{{'generatePDF'|translate|uppercase}} &nbsp; &nbsp;<mat-icon>picture_as_pdf</mat-icon></button>
+            </div>
+        </div>
+
+</div>

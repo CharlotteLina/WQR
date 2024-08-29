@@ -1,0 +1,69 @@
+
+        <!-- Title -->
+        <mat-tab-group animationDuration="500ms" class="parent-tab-group detailTab" [selectedIndex]="selectedIndex">
+            <mat-tab label='Global' >
+                <mat-card class="mainCard">
+                    <!-- Card de resumé -->
+                    <mat-card class="cards">
+                        <app-card-header-title [report]="report" [result]="result" [component]="component" [previousResult]="previousResult"></app-card-header-title>
+                        <div class="role">{{role|translate}} {{parent}} </div>
+                        <table>
+                            <thead>
+                                    <tr >
+                                        <ng-container *ngFor="let column of displayedColumns">
+                                            <th>{{column|lowercase|translate}}</th>
+                                        </ng-container>
+                                    </tr>
+                            </thead>
+                                <tbody>
+                                <ng-container *ngFor="let build of builds" >
+                                
+                                    <tr >
+                                        <td >
+                                            <ng-container *ngIf="build.resultBuild!=environment.success|| build.resultTU!=environment.success && build.resultTU!=environment.unknown && build.resultTU!=environment.na || build.resultSonar!=environment.ok && build.resultSonar!='_'+environment.ok+'_'&& build.resultSonar!=environment.notanalyzed &&  build.resultSonar!=environment.na && build.resultSonar!=environment.unknown|| build.resultUpsource!=environment.success && build.resultUpsource!=environment.ok && build.resultUpsource!=environment.na && build.resultUpsource!=environment.unknown; else noError">
+                                                <a (click)="navigateToAnchor(build.repository)">{{build.repository | cutRepoName}}</a>
+                                            </ng-container>
+                                            <ng-template #noError>
+                                                {{build.repository | cutRepoName}}
+                                            </ng-template>
+                                        </td>
+                                        <td><div [class]="this.utils.getColorBuildAndDeployResult(build.resultBuild)">{{build.resultBuild | translate| titlecase}}</div></td>
+                                        <td><div [class]="this.utils.getColorBuildAndDeployResult(build.resultTU)">{{build.resultTU |translate| titlecase}}</div></td>
+                                        <td><div [class]="this.utils.getColorBuildAndDeployResult(build.resultSonar)">{{build.resultSonar|replace |translate| titlecase}}</div></td>
+                                        <td><div [class]="this.utils.getColorBuildAndDeployResult(build.resultUpsource)">{{build.resultUpsource |translate| titlecase}}</div></td>
+                                    </tr>
+                                </ng-container>
+                                </tbody>
+                        </table> 
+                    </mat-card>
+        
+                    <!-- Card pour chaque repo qui n'est pas en succès -->
+                    <div class="cards">
+                        <ng-container *ngFor="let build of report.builds" >   
+                            <div *ngIf="build.resultBuild!=environment.success|| build.resultTU!=environment.success && build.resultTU!=environment.unknown &&build.resultTU!=environment.na || build.resultSonar!=environment.ok && build.resultSonar!='_OK_' && build.resultSonar!=environment.na && build.resultSonar!=environment.notanalyzed && build.resultSonar!=environment.unknown|| build.resultUpsource!=environment.success && build.resultUpsource!=environment.ok && build.resultUpsource!=environment.na && build.resultUpsource!=environment.unknown">
+                                <app-generate-report-display-build-details [id]="build.repository" [build]="build"></app-generate-report-display-build-details>
+                            </div>    
+                        </ng-container> 
+                    </div>
+        
+        
+                </mat-card>
+            </mat-tab>
+            <mat-tab [label]="'compilation'|translate" >
+                <app-generate-report-display-build-small [report]="report" [detail]="environment.compilation"></app-generate-report-display-build-small>
+            </mat-tab>
+            <mat-tab [label]="'tu'|translate" >
+                <app-generate-report-display-build-small [report]="report" [detail]="environment.unitTest"></app-generate-report-display-build-small>
+            </mat-tab>
+            <mat-tab [label]="'sonar'|translate" >
+                <app-generate-report-display-build-small [report]="report" [detail]="environment.sonar"></app-generate-report-display-build-small>
+            </mat-tab>            
+            <mat-tab [label]="'upsource'|translate" >
+                <app-generate-report-display-build-small [report]="report" [detail]="environment.upsource"></app-generate-report-display-build-small>
+            </mat-tab>
+        </mat-tab-group>
+
+
+
+
+

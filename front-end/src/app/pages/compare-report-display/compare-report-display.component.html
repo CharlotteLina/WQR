@@ -1,0 +1,36 @@
+<div class="page">
+    <div class="homeTitle titleReport"> {{'compare'|translate}} {{type|titlecase}}</div>
+
+    <div class="routes">
+        <a [routerLink]='environment.homePath'> {{'dashboard'|translate}}</a>&nbsp;/&nbsp;
+        <a [routerLink]='environment.comparePath'> {{'generateACompare'|translate}}</a>&nbsp;/&nbsp;
+        <span class="currentRoute">{{'compare'|translate}} {{'of'|translate}} {{type}}</span>
+    </div>
+
+        <ng-container *ngIf="!loading;else LOAD">
+            <ng-container *ngIf="errorMessage; else noError">
+                <p>{{'noBuildOnPeriod'|translate}}</p>
+            </ng-container>
+            <ng-template #noError>
+                <ng-container *ngIf="reportCompare$ | async as report">
+
+                    <!-- Comparaison de build -->
+                    <ng-container *ngIf="type=='BUILD'">
+                        <app-build-compare [reportCompare]="report" [product]="product" [startDate]="startDate" [endDate]="endDate"></app-build-compare>
+                    </ng-container>
+
+                  <!-- Comparaison de Deploy -->
+                  <ng-container *ngIf="type=='DEPLOY'">
+                    <app-deploy-compare [reportCompare]="report" [product]="product" [startDate]="startDate" [endDate]="endDate"></app-deploy-compare>
+                  </ng-container>
+
+                </ng-container>
+            </ng-template>
+        </ng-container>
+        &nbsp;
+
+        <ng-template #LOAD>
+            <p>{{'loading'|translate}}</p>
+        </ng-template>
+
+    </div>

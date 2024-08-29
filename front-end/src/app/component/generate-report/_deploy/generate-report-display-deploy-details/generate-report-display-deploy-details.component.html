@@ -1,0 +1,43 @@
+<mat-card class="detailsCard">
+    <table class="tableDeploy">
+        <thead>
+                <tr >
+                    <ng-container *ngFor="let column of displayedColumns">
+                        <th>{{column}}</th>
+                    </ng-container>
+                </tr>
+        </thead>
+            <tbody>
+                <tr >
+                    <td ><div>{{deployPF.pfName | replace }}</div></td>
+                    <td><div [class]="this.utils.getColorBuildAndDeployResult(deployPF.result)">{{deployPF.result}}</div></td>
+                    <td><div >{{deployPF.machines}}</div></td>
+                    <td class="jenkinsColumn"><a [href]="deployPF.name| getJenkinsJob:deployPF.jenkinsNumber" target="_blank"><i class="fa fa-external-link"></i></a></td>
+
+                </tr>
+            </tbody>
+    </table> 
+
+    <div class="titleDetails">Details:</div>
+    <table class="detailsOfDeploy">
+        <thead>
+                <tr >
+                    <ng-container *ngFor="let column of displayedColumnsDetails">
+                        <th>{{column}}</th>
+                    </ng-container>
+                </tr>
+        </thead>
+            <tbody>
+
+                <tr *ngFor="let details of deployPF.deployPFDetails">
+                    <td ><div [class]="this.utils.getColorBuildAndDeployResult(details.result)">{{details.result}}</div></td>
+                    <td ><div>{{details.name}}</div></td>
+                    <td ><div>{{details.machines}}</div></td>
+                    <td ><div>{{details.cause}}</div></td>
+                    <td class="jenkinsColumn"><a [href]="details.name| getJenkinsJob:details.jenkinsNumber" target="_blank"><i class="fa fa-external-link"></i></a></td>
+
+                </tr>
+            </tbody>
+    </table> 
+
+</mat-card>

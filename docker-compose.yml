@@ -1,0 +1,41 @@
+
+services:
+
+ db:
+   image: mariadb:10.11.3-jammy
+   restart: always
+   environment:
+     MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+     MARIADB_DATABASE : DB_WQR
+     MARIADB_USER: user
+     MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+   volumes:
+     - /opt/docker/data/mariadDBWQR:/var/lib/mysql
+     - /opt/docker/wqr/init-script/01.sql:/docker-entrypoint-initdb.d/db.sql
+   ports:
+     - 3306:3306
+
+
+ back-end:
+  image: wqr-spring-prod:1.1.2
+  restart: always
+  depends_on:
+    - db
+  # build:
+  #   context: .
+  #   tags:
+  #     - "wqr-spring-prod:1.1.2"
+  #   dockerfile: WQRDocker/back-end/Dockerfile
+  ports:
+    - 8085:8080
+
+  environment:
+    - DB_HOST=db
+    
+ front-end:
+   image: wqr-angular-prod:1.0.6
+   restart: always
+   depends_on:
+     - back-end
+   ports:
+     - 443:4200

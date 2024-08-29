@@ -1,0 +1,72 @@
+.basic{
+    width:100%;
+}
+
+.weatherReport{
+    cursor: pointer;
+}
+
+.buttonPrintAndPdf{
+    width:7vw;
+    margin-top:-2vh;
+    position:absolute;
+    border-radius:15px;
+    background-color: var(--main-title);
+    color:white;
+}
+
+.printButton{
+    margin-left:82vw;
+}
+.pdfButton{
+    margin-left:73vw;
+}
+.buttonPrintAndPdf:hover{
+    background-color: var(--primary-color-title);
+}
+
+
+.mainTab{
+    margin-top:3vh;
+    background-color:rgb(235, 231, 231);
+}
+
+.aTab{
+    background-color: var(--background-color);
+    width: 100%;
+}
+
+.footButtonPDF{
+    margin-top:3vh;
+    margin-bottom:5vh;
+}
+
+.pdfHeaderButton{
+    width:7vw;
+    cursor: pointer;
+    // margin-top:-2vh;
+    position:absolute;
+    border-radius:15px;
+    background-color: var(--main-title);
+    color:white;
+    margin-left:83vw;
+}
+
+.footerButton{
+    height: 10vh;
+    width: 80vw;
+    margin-left:5vw;
+    margin-top:4vh;
+}
+
+.pdfFooterButton{
+    height:5vh;
+    cursor: pointer;
+    position:absolute;
+    border-radius:15px;
+    background-color: var(--main-title);
+    color:white;
+    width:20vw;
+    margin-left:30vw;
+    text-align:center;
+}

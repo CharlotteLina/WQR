@@ -1,0 +1,20 @@
+.rebrique{
+    margin-top:10vh;
+}
+.dataOverview{
+    display:flex;
+    flex-wrap: wrap;
+    margin-top:3vh;
+}
+.dataOverview>div{
+    width:40vw;
+    margin-left:3vw;
+}
+
+mat-spinner{
+    margin-top:3vh;
+    margin-left:40vw;
+}
+.titleSnapshot{
+    margin-bottom: 2vh;
+}

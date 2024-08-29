@@ -1,0 +1,35 @@
+.selectToCompare{
+    width: 40%;
+    margin-left:30%;
+    justify-content: center;
+    margin-top:5vh;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+section{
+    margin-top: 8vh;
+}
+
+button{
+    width:80%;
+    height: 3em;
+    margin-top:7vh;
+    margin-left:10%;
+    background-color: var(--primary-color-title);
+    color:white;
+    font-weight: 300;
+    border-radius: 10px;
+    font-size:1.2em;
+    cursor:pointer;
+    padding-bottom: 0.5em;
+}
+
+mat-icon{
+    top: 0.3em;
+    position: relative;
+}
+
+

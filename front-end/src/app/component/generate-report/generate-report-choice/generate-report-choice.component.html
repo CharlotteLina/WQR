@@ -1,0 +1,58 @@
+
+<!-- Composant de choix du rapport à générer -->
+<div class="homeTitle titleReport">{{'report'|translate}}</div>
+
+<app-product-selected></app-product-selected>
+
+
+<div class="routes"> <a routerLink="/home"> {{'dashboard'|translate}}</a>&nbsp;/&nbsp; <span class="currentRoute">{{'generateReport'|translate}} </span></div>
+
+<!-- Champs de selection du nom du produit -->
+<section>
+    <mat-form-field>
+        <mat-label>{{'chooseProductReport'|translate}}</mat-label>
+        <input  type="text" matInput [formControl]="controlSelectedProductName" [matAutocomplete]="autoProduct" (input)="selectProductVersionOrReportType()" (focus)="selectProductVersionOrReportType()" >
+        <mat-autocomplete #autoProduct="matAutocomplete" [displayWith]="displayFnString">
+        @for (optionProductName of filteredOptionProductName ; track optionProductName) {
+            <mat-option [value]="optionProductName">{{optionProductName}}</mat-option>
+        }
+        </mat-autocomplete>
+    </mat-form-field>
+</section>
+
+<!-- Champs de selection du rapport -->
+<section>
+    <mat-form-field>
+        <mat-label>{{'typeProductReport'|translate}}</mat-label>
+        <input  type="text" matInput [formControl]="controlSelectedReportType" [matAutocomplete]="autoReportType" (input)="selectProductVersionOrReportType()" (focus)="selectProductVersionOrReportType()"  >
+        <mat-autocomplete #autoReportType="matAutocomplete" [displayWith]="displayFnString">
+          @for (option of filteredOptionReportType | async; track option) {
+            <mat-option [value]="option| titlecase">{{option| titlecase}}</mat-option>
+          }
+        </mat-autocomplete>
+    </mat-form-field>
+</section>
+
+
+
+<!-- Champs de selection de la version du produit -->
+<section>
+    <mat-form-field>
+        <mat-label>{{environment.version}}</mat-label>
+        <input  type="text" matInput [formControl]="controlSelectedProductVersion" [matAutocomplete]="autoProductVersion"  (input)="selectBranchAndIdOfProduct()" (focus)="selectBranchAndIdOfProduct()">
+        <mat-autocomplete #autoProductVersion="matAutocomplete" [displayWith]="displayFnProduct">
+        @for (option of filteredOptionProductVersion | async; track option) {
+            <mat-option [value]="option">{{option.version}}</mat-option> 
+        }
+        </mat-autocomplete>
+    </mat-form-field>
+    <div class="branchName">{{'branch'|translate}} : {{branchNameSelected}}</div>
+</section>
+
+
+<!-- Bouton de génération du rapport-->
+<button mat-raised-button (click)="generateReport()" clickable>{{'generateAReport'|translate}} &nbsp; <mat-icon>arrow_forward</mat-icon></button>
+
+<!-- Message d'erreur -->
+<p class="errorMessage">{{errorMessage}}</p>
+<p class="errorMessage">{{errorMessageHelp}}</p>

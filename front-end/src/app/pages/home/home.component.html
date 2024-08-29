@@ -1,0 +1,40 @@
+<!-- Page d'acceuil-->   
+<div class="page">
+
+        
+
+    <app-product-selected (productsEvent)="getProducts($event)"></app-product-selected>
+
+    <!-- Data overview -->
+    <mat-spinner *ngIf="spinner;else noSpinner"></mat-spinner>
+    <ng-template #noSpinner>
+
+        <div class="rebrique">
+            <div>
+                <div class="homeTitle">{{'titleFirstPart'|translate}}</div>
+            </div>
+            <div class="dataOverview">
+                <ng-container *ngIf="resumeReport|async as resumeReport">
+                    <app-card-view-last-product [resumeReport]="resumeReport"></app-card-view-last-product>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- Derniers snapshots -->
+        <div class="rebrique">
+            <div class="titleSnapshot">
+                <div class="homeTitle">{{'titleSecondPart'|translate}}</div>
+            </div>
+            <div>
+                <ng-container *ngFor="let report of weatherReport"> 
+                    <!-- Affichage des 3 derniers rapports météo -->
+                    <ng-container *ngIf="report| async as report">
+                        <app-generate-report-display-weather [report]="report" (navigateReport)="navigateToReport($event,report)" (navigateReportDetail)="navigateToReportDetails($event,report)"></app-generate-report-display-weather>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </ng-template>
+
+</div>
+

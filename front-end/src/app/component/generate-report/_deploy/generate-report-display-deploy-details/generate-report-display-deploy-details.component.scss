@@ -1,0 +1,51 @@
+
+.detailsCard{
+    margin-top:2vh;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom:2vh;
+}
+
+.tableDeploy{
+    font-size:1.2em;
+    max-width: 80vw;
+}
+
+.detailsOfDeploy{
+    width:90%;
+    margin-left: 5%;
+    margin-bottom:2vh;
+    margin-top:-0.2vh;
+
+}
+
+.titleDetails{
+    margin-top: 2vh;
+    margin-left: 5%;
+    font-size:1.1em;
+    color:var(--main-title);
+    font-weight: 500;
+    margin-bottom: 0.2vh;
+}
+
+
+.jenkinsColumn{
+    width:5% !important;
+}
+a>i{
+    color:var(--main-title);
+}
+
+.tableDeploy>tbody>tr>td{
+    min-width: 5vw;
+    max-width: 20vw;
+    white-space:pre-wrap;
+    word-wrap: break-word;
+}
+
+.detailsOfDeploy>tbody>tr>td{
+    min-width: 5vw;
+    max-width: 15vw;
+    white-space:pre-wrap;
+    word-wrap: break-word;
+}

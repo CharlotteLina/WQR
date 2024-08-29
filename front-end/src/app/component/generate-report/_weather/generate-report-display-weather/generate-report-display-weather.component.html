@@ -1,0 +1,47 @@
+
+
+<mat-card class="mainCard">
+
+    <app-card-header-title [report]="report" [result]="result" [previousResult]="previousResult"></app-card-header-title>
+                <div class="allBox">
+                    <!-- Build Box -->
+                    <div>
+                        <mat-card>
+                            <mat-card-header  class="navigate" role="button" (click)="navigate(environment.buildType)" [class]="this.utils.getColorWeatherDetailsResult(report.currentResult.buildResult,'title')">
+                                <div>{{'buildType'|translate|titlecase}}</div>
+                            </mat-card-header>
+                            <div>
+                                <div role="button" (click)="navigateToDetails(environment.buildType,environment.compilation)" [class]="this.utils.getColorWeatherDetailsResult(report.currentResult.compilationResult,'details')"><div [class]="this.utils.getColorWeatherDetailsCase(report.currentResult.compilationResult)"></div>{{'compilation'|translate}}</div>
+                                <div role="button" (click)="navigateToDetails(environment.buildType,environment.unitTest)" [class]="this.utils.getColorWeatherDetailsResult(report.currentResult.testUnitaireResult,'details')"><div [class]="this.utils.getColorWeatherDetailsCase(report.currentResult.testUnitaireResult)"></div>{{'tu'|translate}}</div>
+                                <div role="button" (click)="navigateToDetails(environment.buildType,environment.sonar)" [class]="this.utils.getColorWeatherDetailsResult(report.currentResult.sonarResult,'details')"><div [class]="this.utils.getColorWeatherDetailsCase(report.currentResult.sonarResult)"></div>{{'sonar'|translate}}</div>
+                                <div role="button" (click)="navigateToDetails(environment.buildType,environment.upsource)" [class]="this.utils.getColorWeatherDetailsResult(report.currentResult.upsourceResult,'details')"><div [class]="this.utils.getColorWeatherDetailsCase(report.currentResult.upsourceResult)"></div>{{'upsource'|translate}}</div>
+                            </div>
+                        </mat-card>
+                    </div>
+    
+                    <!-- Deploy Box -->
+                    <div>
+                        <mat-card>
+                            <mat-card-header class="navigate" role="button" (click)="navigate(environment.deployType)" [class]="this.utils.getColorWeatherDetailsResult(report.currentResult.deployResult,'title')">
+                                <div>{{'deployType'|translate|titlecase}}</div>
+                            </mat-card-header>
+                            <div class="aContainer" *ngFor="let deployPF of report.deployPF ">
+                                   <div (click)="navigateToDetails(environment.deployType,deployPF.pfName)" [class]="this.utils.getColorWeatherDetailsResult(deployPF.result,'details')"><div [class]="this.utils.getColorWeatherDetailsCase(deployPF.result)"></div> {{deployPF.pfName | replace }}</div>
+                            </div>
+                        </mat-card>
+                    </div>
+    
+                    <!-- Test Box  -->
+                    <div>
+                        <mat-card>
+                            <mat-card-header class="navigate" role="button" (click)="navigate(environment.testType)" [class]="this.utils.getColorWeatherDetailsResult(report.currentResult.testResult,'title')">
+                                <div>{{'testTypeBis'|translate|titlecase}}</div>
+                            </mat-card-header>
+                            <div class="aContainer" *ngFor="let testDetails of report.currentResult.testResultDetails ">
+                                    <div role="button" (click)="navigateToDetails(environment.testType,testDetails.pfName+'||'+testDetails.type)" [class]="this.utils.getColorWeatherDetailsResult(testDetails.result,'details')"><div [class]="this.utils.getColorWeatherDetailsCase(testDetails.result)"></div>{{testDetails.type}} - {{testDetails.pfName| replace }}</div>
+                            </div>
+                        </mat-card>
+                    </div>
+                </div> 
+    
+    </mat-card>

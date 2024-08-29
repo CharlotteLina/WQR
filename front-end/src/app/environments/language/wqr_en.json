@@ -1,0 +1,121 @@
+{
+    "title":"wqr",
+
+    "buildType":"BUILD",
+    "buildTypeLowerCase":"of build",
+    
+    "testType":"TEST",
+    "testTypeBis":"INTEGRATION TEST",
+    "testTypeLowerCase":"of test",
+    
+    "deployType":"DEPLOYMENT",
+    "deployTypeBis":"DEPLOY",
+    "deployTypeLowerCase":"of deployment",
+    
+    "weatherType":"WEATHER",
+    "weatherTypeLowerCase":"weather",
+  
+    "version":"Version",
+      
+    "pendingType":"PENDING",
+    
+    "MISSING":"Review missing",
+    "NOTCLOSED":"Review not closed",
+
+    "loading":"Loading",
+  
+    "print":"print",
+    "reduceEnlarge":"Reduce/Enlarge",
+    "product":"Product",
+  
+    "homeTitle":"Home",
+    "generateTitle":"Report",
+    "compareTitle":"Compare",
+    
+    "chooseProduct":"Select one product ",
+    "errorMessageChooseProduct":"You need to select one product",
+    "validateButton":"Validate",
+    
+    "titleFirstPart":"Overview (Last 10 versions)",
+    "titleSecondPart":"Last snapshots",
+    "cardWeather ":"Weather report",
+    "cardBuild":"Build report",
+    "noVersion":"No version",
+    "branch":"Branch",
+    "noReportSave":"No report saved",
+    
+    "report":"Report",
+    "generateReport":"Generate a report",
+    "generatePDF":"Generate PDF",
+    "chooseProductReport":"Choose a product,",
+    "typeProductReport":"Type of report",
+    "generateAReport":"Generate the report",
+  
+    
+    "component":"Component of build ",
+    "parent":"Parent of build ",
+    
+    "compilation":"Compilation",
+    "tu":"Unit test",
+    "sonar":"Sonar",
+    "upsource":"Upsource",
+    "jenkins":"Jenkins",
+    "displayTest":"Display tests",
+    "sonarError":"Too many rule violations Sonar",
+    
+    "refused":"REFUSED",
+  
+    "compare":"Comparison",
+    "compared":"Compared",
+    "noBuildOnPeriod ":"No build on the period",
+    "dashboard":"Dashboard",
+    "generateACompare":"Generate a comparison",
+    "of":"of",
+    "ofe":"of",
+    "chooseTypeReport":"Choose a type",
+    "chooseStartAndEndDate":"Choose start date and end date",
+    "startDate":"Start date",
+    "endDate":"End date",
+    "cancel":"Cancel",
+    "apply":"Apply",
+    "generateCompare":"Generate the comparison",
+  
+  
+    "name":"Name",
+    "nbTest":"NB Test",
+    "nbTestOk":"NB Test OK",
+    "nbTestError":"NB Test Error",
+    "nbTestSkipped":"NB Test Skipped",
+    "compilationcol":"Compilation",
+    "unittestcol":"Unit test ",
+  
+    "pfName":"PF Name",
+    "duration":"Duration",
+
+    "type":"Type",
+    "informations":"Information",
+    "author":"Author",
+    "reviewerNotFinish":"Reviewer not finish",
+  
+    "FAILURE":"FAILURE",
+    "ERROR":"ERROR",
+    "NOT ANALYZED":"NOT ANALYZED",
+    "WARNING":"WARNING",
+    "SUCCESS":"SUCCESS",
+    "UNKNOWN":"UNKNOWN",
+    "UNSTABLE":"UNSTABLE",
+    "N/A":"NOT APPLICABLE",
+
+    "de build":"of build",
+    "de test":"of test",
+    "de déploiement":"of deployment",
+    "météo":"weather",
+
+    "globalResult": "Global result ",
+
+    "generateOfPDF":"Generate a PDF",
+    "displayPDF":"Display PDF",
+    "savePDF":"Save PDF",
+    "sendEmail":"Send by email(Coming)"
+
+}

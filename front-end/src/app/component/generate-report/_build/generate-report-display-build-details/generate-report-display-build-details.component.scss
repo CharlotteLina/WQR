@@ -1,0 +1,151 @@
+
+.titleCardHeader{
+    background-color: var(--third-color);
+    width: 95%;
+    border-radius:20px;
+    margin-top:1vh;
+    margin-bottom:1vh;
+    margin-left:1%;
+    height:3vh;
+    padding:1vh;
+}
+
+.title{
+    margin-left:1vw;
+    display: flex;  
+}
+
+.repoName{
+    color:var(--main-title);
+    font-size:1.02em;
+    font-weight: bolder;
+    width:15vw;
+}
+
+.link{
+    background-color: white;
+    width:auto;
+    color:var(--primary-color-title);
+    height:1vh;
+    border:1px solid var(--primary-color-title);
+    padding: 0.5vh;
+    border-radius: 7px;
+}
+
+a{
+    text-decoration: none;
+    color:var(--primary-color-title);
+    font-weight: 500;
+}
+
+.titleDetails{
+    margin-top:2vh;
+    color:var(--main-title);
+    font-weight: 500;
+    font-size:1.1em;
+    margin-left:3vw;
+    text-decoration: underline;
+    margin-bottom: 2vh;
+
+}
+
+.details{
+    width:63vw;
+    display: flex;
+    justify-content:flex-end;
+    padding-bottom: 1vh;
+    line-height:2vh;
+}
+
+.aDetail{
+    width: auto;
+    font-size:0.9em;
+}
+
+.idColumnTestUnitaires{
+    width:12% !important;
+}
+
+.nameColumn{
+    width: 52% !important;
+}
+
+.resColumn{
+    width:9% !important;
+}
+
+i{
+    line-height: 3vh;
+    height: 3vh;
+}
+
+table{
+    margin-bottom: 2vh;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+
+.divSonar{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.columnRaised{
+    width: 8%;
+    font-weight: bold;
+    color:var(--failureColor)
+}
+
+.columnBasic{
+    width:13%;
+}
+
+.columnInformation{
+    width:45%;
+}
+
+.columnNotFinish{
+    width:21%;
+}
+
+.chooseTU{
+    display: flex;
+    margin-top:-4vh;
+    float:right;
+    position: relative;
+    margin-right: 2vw;
+}
+
+mat-card{
+    margin-bottom: 3vh;
+    width:98%;
+    margin-left:1%;
+}
+
+
+img{
+    line-height: 2vh;
+    height: 2vh;
+    justify-content: center;
+    margin-bottom: -0.8vh;
+    margin-top:-1vh
+}
+
+.sonar{
+    margin-bottom:-0.4vh;
+}
+
+.upsource{
+    margin-bottom: -0.4vh;
+}
+
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background-color: red !important;
+  }
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: red !important;
+  }

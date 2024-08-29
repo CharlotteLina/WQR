@@ -1,0 +1,169 @@
+
+.reportCompare{
+    margin-top:4vh;
+    margin-left:1.5vw;
+    width:85vw;
+    display:flex;
+    margin-bottom: 3vh;
+}
+
+.titleGraph{
+    margin-bottom: 3vh;    
+    width:90%;
+}
+
+.titleIndicator{
+    font-size:1.4em;
+    border-bottom: 3px solid var(--primary-color-title);
+    padding:10px;
+    width:90%;
+    text-align: center;
+}
+
+.titleCompare{
+    width: 100%;
+    background-color:var(--main-title);
+    color : white;
+
+}
+
+.titleCardHeader>div{
+    display: flex;
+    width:100%;
+}
+.titleCardHeader>div>.title{
+    font-size:1.5em;
+    padding: 3px;
+    line-height: 1.5vh;
+    font-weight: 700;
+    width:60%;
+    margin-bottom: 1vh;
+}
+
+.titleCardHeader>div>.date{
+    font-size:1.2em;
+    line-height: 1.5vh;
+    padding: 3px;
+    text-align: right;
+    margin-right: 5%;
+    color:var(--unknowLightColor);
+    width: 40%;
+
+}
+
+mat-icon{
+    height: fit-content;
+    font-size:1.2em;
+    line-height: 1.5vh;
+    justify-content: center;
+}
+
+.colOne{
+    width:62vw;
+}
+
+.colTwo{
+    width: 18vw;
+    margin-left: 3vw;
+    // height: 80vh;
+
+}
+
+.releases{
+    height:8vw;
+    padding:10px;
+    background-color: var(--primary-color-title);
+    color:white;
+    margin-bottom: 2vh;
+}
+
+.nbRelease{
+    font-size:3em;
+    font-weight: 700;
+    text-align: center;
+    padding:0.5vw;
+    margin-top:3vh;
+    margin-bottom:3vh;
+
+    color: var(--primary-color-title);
+
+    
+}
+
+
+
+.globalResult{
+    margin-bottom: 3vh;
+    margin-top: 5vh;
+}
+
+.globalResultAndModules{
+    display: flex;
+    margin-top:8vh;
+
+}
+
+
+.aSnapshot{
+    height: 6vh;
+    background-color: #F7F6F3;
+    margin-top:1vh;
+    width: 95%;
+    margin-left:5%;
+    border:none;
+
+}
+
+.aSnapshot>div{
+    display: flex;
+}
+
+.branchName{
+    font-size: 1em;
+    color:var(--grey-color);
+    margin-top:1.5vh;
+    line-height:1.5vh;
+    // margin-left:10%;
+    width:65%;
+}
+
+.branchName>span{
+    font-size:1.1em;
+    font-weight: 500;
+}
+
+.branchValue{
+    color: var(--primary-color-title);
+    font-size:1.3em;
+    font-weight: 600;
+    line-height: 3vh;
+    margin-top:1.5vh;
+    margin-left:10%;
+    width: 20%;
+}
+
+
+.titleCardHeader{
+    color: var(--third-color);
+    width: 95%;
+    border-radius:20px;
+    margin-top:1vh;
+    margin-left:1%;
+    margin-bottom: 2vh;
+    height:fit-content;
+    background-color:var(--main-title);
+    line-height: 2vh;
+    height:4vh;
+}
+
+.mainCard{
+    width:88vw;
+    margin-left:1vw;
+}
+
+
+.buildDetail{
+    margin-top:2vh;
+    height:50vh;
+}
+

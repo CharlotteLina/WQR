@@ -1,0 +1,64 @@
+<mat-card class="mainCard">
+
+    <mat-card-header class="titleCardHeader">
+        <div>
+            <div class="title">{{product}} > {{'compare'|translate}} {{'of'|translate}} {{environment.buildType|titlecase}} </div>
+            <div class="date"> <mat-icon>alarm</mat-icon> {{startDate}} &nbsp;>>&nbsp; {{endDate}}</div>
+        </div>
+    </mat-card-header>
+
+
+
+    <div *ngIf="reportCompare" class="reportCompare">
+
+
+        <div class="colOne">
+            <div class="aGraphOrIndicator ">
+                <app-column-chart [graph]="reportCompare.graphList[2]" [width]="'63vw'" [height]="'40vh'"></app-column-chart>
+            </div>
+            <div class="aGraphOrIndicator">
+                <app-bar-chart [graph]="reportCompare.graphList[1]"  (elementChoose)="changeBuildDetail($event)"  [width]="'63vw'" [height]="'40vh'"></app-bar-chart>
+            </div>
+            <div class="buildDetail">
+                <ng-container *ngIf="buildDetail$ | async as report">
+                    <app-spline-chart [graph]="report" [height]="'40vh'"></app-spline-chart>
+                </ng-container>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="colTwo">
+
+            <div class="aGraphOrIndicator">
+                <app-doughnut-chart [graph]="reportCompare.graphList[0].dataList[0]" [height]="'15vh'"></app-doughnut-chart>
+            </div>
+
+            <div class="aGraphOrIndicator">
+                <app-card-title [title]="reportCompare.indicatorList[0].title" [icon]="'dvr'"></app-card-title>
+                <ng-container *ngFor="let v of reportCompare.indicatorList[0].value">
+                    <p class="nbRelease">{{v.value}}</p>
+                </ng-container>
+            </div>
+            <div class="aGraphOrIndicator">
+                <app-card-title [title]="reportCompare.indicatorList[1].title" [icon]="'style'"></app-card-title>
+
+                    <ng-container *ngFor="let v of reportCompare.indicatorList[1].value">
+                        <mat-card class="aSnapshot">
+                            <div>
+                                <div class="branchValue">{{v.value}} </div>
+                                <div class="branchName">  {{'branch'|translate}} : <span>{{v.name}}</span></div>
+                            </div>
+                        </mat-card>
+                    </ng-container>
+
+            </div>
+
+        </div>
+    </div>
+</mat-card>
+
+
+

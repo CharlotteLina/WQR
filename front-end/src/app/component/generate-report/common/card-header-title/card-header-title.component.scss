@@ -1,0 +1,80 @@
+.titleCardHeader{
+    background-color: var(--third-color);
+    width: 95%;
+    border-radius:20px;
+    margin-top:1vh;
+    margin-left:1%;
+    height:5vh;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+i{
+    margin-left:0.10vw;
+}
+.mainIcon{
+    background-color:var(--successColor);
+    border-radius: 50%;
+    position:absolute;
+    padding: 0.3vw;
+    font-weight: bold;
+    color:white;
+    // height:1vh;
+    width:1.5vh;
+    left:1vw;
+    top:1vh;
+    transform:scale(1.1);
+    border:10px solid var(--successLightColor);
+}
+
+.title{
+    margin-left:4vw;
+    display: flex;  
+}
+  
+.titleVersion{
+    color:var(--main-title);
+    font-size:1.7vh;
+    display:flex;
+    font-weight: bolder;
+    width:30vw;
+    line-height: 5vh;
+}
+  
+.titleBranchAndDate{
+    // margin-left:5vw;
+    color:var(--grey-color);
+    width:45vw;
+    margin-right: 2vw;
+    font-size:1.3vh;
+    text-align: right;
+    line-height: 5vh;
+}
+  
+  
+.titleBranchAndDate>mat-icon{
+    height: fit-content;
+    font-size:1.1em;
+    // right:1vw;
+}
+  
+
+.iconEvolution>mat-icon{
+    color:black;
+    line-height: 3.0vh;
+    font-weight: bolder;
+}
+
+.iconEvolution{
+    background-color: rgb(214, 212, 212);
+    width: 3vh;
+    height:3vh;
+    line-height: 3.5vh;
+    margin-left:-3.5vw;
+    text-align: center;
+    // margin-top:1vh;
+    margin-right: 1vw;
+    border-radius:50%;
+    border:0.3vh solid rgb(230, 227, 227);
+}
+

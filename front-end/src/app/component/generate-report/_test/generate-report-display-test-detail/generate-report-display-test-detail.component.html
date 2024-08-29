@@ -1,0 +1,28 @@
+<mat-card class="mainCard">
+    <app-card-header-title [report]="report" [result]="result"  [previousResult]="previousResult"></app-card-header-title>
+    <table matSort (matSortChange)="sortData($event)">
+        <thead>
+                <tr >
+                    <ng-container *ngFor="let column of displayedColumns">
+                        <th class="test" mat-sort-header={{column}}>{{column}}</th>
+                    </ng-container>
+                </tr>
+        </thead>
+            <tbody>
+                <tr *ngFor="let testInte of tests">
+                    <td class="mediumColumn" ><div [class]="this.utils.getColorBuildAndDeployResult(testInte.result)">{{testInte.result}}</div></td>
+                    <td class="largeColumn"><div>{{testInte.scenarioName}}</div></td>
+                    <td class="mediumColumn"><div>{{testInte.type}}</div></td>
+                    <td class="mediumColumn"><div>{{testInte.pfName | replace}}</div></td>
+                    <td class="mediumColumn"><div>{{testInte.startDate | date :'dd/MM/YY - HH:mm'}}</div></td>
+                    <td class="mediumColumn"><div>{{testInte.duration}}</div></td>
+                    <td class="littleColumn"><div>{{testInte.nbTestTotal}}</div></td>
+                    <td class="littleColumn"><div>{{testInte.nbTestOk}}</div></td>
+                    <td class="littleColumn"><div>{{testInte.nbTestKo}}</div></td>
+                    <td class="littleColumn"><div>{{testInte.nbTestNa}}</div></td>
+                    <td class="littleColumn"><div>{{testInte.nbTestWarn}}</div></td>
+
+                </tr>
+            </tbody>
+    </table> 
+</mat-card>

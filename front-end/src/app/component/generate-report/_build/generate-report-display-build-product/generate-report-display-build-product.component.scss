@@ -1,0 +1,42 @@
+.role{
+    color:var(--secondary-color-title);
+    font-size:1.2em;
+    margin-top:0.5vh;
+    font-weight: 500;
+    margin-left:5vw;
+}
+
+
+.mainCard{
+    width:96%;
+    margin-left:1%;
+    background-color: white;
+}
+mat-card{
+    margin-top:0.5vh;
+    
+}
+
+.cards{
+    width:98%;
+    margin-bottom:2vh;
+    margin-left:1vw;
+}
+
+
+
+a{
+    cursor:pointer;
+    text-decoration: underline black;
+}
+
+td{
+    height:3.5vh;
+    border-bottom:1px solid var(--white-blue-color);
+    text-align:center;
+    width: 20%;
+  }
+
+  .mainTab{
+    margin-top: 0.5vh;
+  }

@@ -1,0 +1,53 @@
+<mat-card class="mainCard">
+    <!-- Card de resumé -->
+    <mat-card class="cards">
+        <app-card-header-title [report]="report" [result]="result" [previousResult]="previousResult"></app-card-header-title>
+       
+        <table>
+            <thead>
+                    <tr >
+                            <th>{{'name'|translate}}</th>
+                            <th>{{detail}}</th>
+
+                    </tr>
+            </thead>
+                <tbody>
+                <ng-container *ngFor="let build of report.builds" >
+                
+                    <tr >
+                        <td >
+                            <ng-container *ngIf="(build.resultBuild!=environment.success && detail==environment.compilation)|| (build.resultTU!=environment.success && build.resultTU!=environment.unknown && build.resultTU!=environment.na && detail==environment.unitTest) || (build.resultSonar!=environment.ok && build.resultSonar!=environment.na && build.resultSonar!=environment.unknown && detail==environment.sonar)|| (build.resultUpsource!=environment.success && build.resultUpsource!=environment.ok && build.resultUpsource!=environment.na && build.resultUpsource!=environment.unknown && detail==environment.upsource); else noError">
+                                <a (click)="navigateToAnchor(build.repository)">{{build.repository | cutRepoName}}</a>
+                            </ng-container>
+                            <ng-template #noError>
+                                {{build.repository | cutRepoName}}
+                            </ng-template>
+                        </td>
+                        <ng-container *ngIf="detail==environment.compilation">
+                            <td><div [class]="this.utils.getColorBuildAndDeployResult(build.resultBuild)">{{build.resultBuild |titlecase}}</div></td>
+                        </ng-container>
+                        <ng-container *ngIf="detail==environment.unitTest">
+                            <td><div [class]="this.utils.getColorBuildAndDeployResult(build.resultTU)">{{build.resultTU |titlecase}}</div></td>
+                        </ng-container>
+                        <ng-container *ngIf="detail==environment.sonar">
+                            <td><div [class]="this.utils.getColorBuildAndDeployResult(build.resultSonar)">{{build.resultSonar |titlecase}}</div></td>
+                        </ng-container>
+                        <ng-container *ngIf="detail==environment.upsource">
+                            <td><div [class]="this.utils.getColorBuildAndDeployResult(build.resultUpsource)">{{build.resultUpsource |titlecase}}</div></td>
+                        </ng-container>
+                    </tr>
+                </ng-container>
+                </tbody>
+        </table> 
+    </mat-card>
+
+    <!-- Card pour chaque repo qui n'est pas en succès -->
+    <div class="cards">
+        <ng-container *ngFor="let build of builds" >   
+                <app-generate-report-display-build-details [id]="build.repository" [build]="build" [detail]="detail"></app-generate-report-display-build-details>
+        </ng-container> 
+    </div>
+
+
+</mat-card>
+

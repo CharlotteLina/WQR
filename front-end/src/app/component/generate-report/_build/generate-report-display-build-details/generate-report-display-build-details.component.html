@@ -1,0 +1,110 @@
+
+
+<mat-card>
+    <!-- En tete -->
+    <mat-card-header class="titleCardHeader">
+        
+            <div class="title">
+                <mat-icon  type="button" (click)="displayDetails()" [title]="'reduceEnlarge'|translate">keyboard_arrow_down</mat-icon>
+                <div class="repoName">{{build.repository | cutRepoName}}</div>
+                <section class="details">
+                    <div class="aDetail" *ngIf="errorOnCompilation">
+                        &nbsp;| <i class='fas fa-compress-arrows-alt'></i>
+                        {{'compilation'|translate}} <span [class]="this.utils.getColorReportResult(build.resultBuild)">{{build.resultBuild|translate}}</span> &nbsp;&nbsp;<ng-container *ngIf="build.causeBuild!='N/A'"><span class="link"><a [href]="build.causeBuild" target="_blank">&nbsp;<i class='fas fa-arrow-right'></i> </a></span></ng-container>&nbsp;&nbsp;&nbsp;
+                    </div >
+                    <div  class="aDetail" *ngIf="errorOnTU">                   
+                        &nbsp;| <i class='fas fa-bug'></i>
+                        {{'tu'|translate}} <span [class]="this.utils.getColorReportResult(build.resultTU)">{{build.resultTU|translate}}</span> &nbsp;<span class="link"><a [href]="tuUrl" target="_blank">&nbsp;<i class='fas fa-arrow-right'></i></a></span>&nbsp;
+                    </div>
+                        <div  class="aDetail" *ngIf="errorOnSonar">                   
+                            &nbsp;| <i class='fas fa-shield-alt'></i>
+                            {{'sonar'|translate}} <span [class]="this.utils.getColorReportResult(build.resultSonar)">{{build.resultSonar|replace|translate}}</span> &nbsp;<span class="link"><a [href]="sonarUrl" target="_blank">&nbsp;<i class='fas fa-arrow-right'></i> </a></span>&nbsp;
+                    </div>
+                        <div  class="aDetail" *ngIf="errorOnUpsource">                   
+                            &nbsp;| <i class='fas fa-file-alt'></i>
+                            {{'upsource'|translate}} <span [class]="this.utils.getColorReportResult(build.resultUpsource)">{{build.resultUpsource|translate}}</span> &nbsp;<span class="link"><a [href]="upsourceUrl" target="_blank">&nbsp;<i class='fas fa-arrow-right'></i></a></span>&nbsp;
+                    </div>
+                </section>
+            </div>
+    </mat-card-header>
+
+    <ng-container *ngIf="visible">
+    <!-- Erreur sur les tests unitaires  -->
+    <div *ngIf="errorOnTU && (detail==environment.unitTest|| !detail)" >
+        
+
+        <div class="titleDetails"> <mat-icon  type="button" (click)="displayDetailsTu()" [title]="'reduceEnlarge'|translate">keyboard_arrow_down</mat-icon>{{'tu'|translate}} : </div>
+
+        <ng-container *ngIf="visibleTU">
+        <section class="chooseTU">
+            <div> {{'displayTest'|translate}} : </div>
+            <ng-container *ngFor="let type of typeName">
+                <mat-checkbox [checked]="type.value" (change)="changeUnitTest(type)">
+                    <div [class]="this.utils.getColorTU(type.name)">{{type.name|translate}}</div>
+                </mat-checkbox>
+            </ng-container>
+        </section>
+        <table matSort (matSortChange)="sortData($event)">
+            <thead>
+                    <tr >
+                        <th *ngFor="let column of displayedColumnTU"  mat-sort-header={{column}}>{{column|translate}}</th>
+                    </tr>
+            </thead>
+                <tbody>
+                <ng-container *ngFor="let tu of unitTests" >
+                    <tr>
+                        <td class="idColumnTestUnitaires"><div [class]="this.utils.getColorBuildAndDeployResult(tu.result)">{{tu.result|translate}}</div></td>
+                        <td class="nameColumn">{{tu.name}}</td>
+                        <td class="resColumn">{{tu.nbTestTotal}}</td>
+                        <td class="resColumn">{{tu.nbTestOk}}</td>
+                        <td class="resColumn">{{tu.nbTestKo}}</td>
+                        <td class="resColumn">{{tu.nbTestSkipped}}</td>
+                    </tr>
+                </ng-container>
+                </tbody>
+        </table> 
+    </ng-container>
+
+
+
+        
+    </div>
+
+
+    <!-- Erreur sur Sonar -->
+    <div *ngIf="errorOnSonar && (detail==environment.sonar || !detail)">
+        <div class="divSonar"><span class="titleDetails">{{'sonar'|translate}}:</span> {{'sonarError'|translate}}</div>
+    </div>
+
+    <!-- Erreur sur Upsource -->
+    <div *ngIf="errorOnUpsource && (detail==environment.upsource|| !detail)">
+        <div class="titleDetails"> <mat-icon  type="button" (click)="displayDetailsUpsource()" [title]="'reduceEnlarge'|translate">keyboard_arrow_down</mat-icon>{{'upsource'|translate}} : </div>
+        <ng-container *ngIf="visibleUpSource">
+
+        <table>
+            <thead>
+                    <tr >
+                        <ng-container *ngFor="let column of displayedColumnUpsource">
+                            <th>{{column|translate}}</th>
+                        </ng-container>
+                    </tr>
+            </thead>
+                <tbody>
+                <ng-container *ngFor="let upsource of build.upsources" >
+                    <tr [class]="this.utils.getRaised(upsource.raised)">
+                        <td class="columnRaised" >
+                            <ng-container *ngIf="upsource.raised!=''">{{'refused'|translate}}</ng-container>
+                        </td>
+                        <td class="columnBasic" >{{upsource.type|translate}}</td>
+                        <td class="columnInformation">{{upsource.information}}</td>
+                        <td class="columnBasic" >{{upsource.author}}</td>
+                        <td class="columnNotFinish" >{{upsource.reviewerNotFinish}}</td>
+                    </tr>
+                </ng-container>
+                </tbody>
+        </table> 
+        </ng-container>
+    </div>
+    </ng-container>
+</mat-card>
+  

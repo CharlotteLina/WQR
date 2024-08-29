@@ -1,0 +1,69 @@
+
+//Card de résumé 
+.viewCard{
+    height: 54vh;
+    width: 89vw;
+
+}
+
+
+.viewCard >div>div>mat-card>div{
+    display: flex;
+}
+
+.listOfResume{
+    overflow-y: scroll;
+    height: 45vh;
+    margin-top:1vh;
+}
+
+
+.productName{
+    font-size:0.9em;
+    height: 1vh;
+    padding-top:1%;
+    padding-left:5%;
+    color:var(--grey-color);
+
+}
+
+.version{
+    padding-left:5%;
+    height: 2vh;
+
+    padding-top:-2%;
+    font-weight:bold;
+    color:var(--primary-color-title);
+    font-size:1.3em;
+
+}
+
+.branchAndDate{
+    height: 1vh;
+    padding-left:5%;
+    color:var(--grey-color);
+}
+
+.info{
+    width: 70%;
+}
+
+
+.buttons{
+    width: 25%;
+    display:flex;
+}
+
+
+.pending{
+    width: 95%;
+    margin-left:8%;
+    height:7vh;
+    margin-top:1.5vh;
+    font-size:1.3em;
+    text-align: center;
+    line-height: 7vh;
+    border-radius: 10px;
+    color:white;
+    background-color: var(--pendingColor);
+}

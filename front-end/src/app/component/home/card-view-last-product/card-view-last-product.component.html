@@ -1,0 +1,41 @@
+<mat-card class="viewCard">
+    
+    <app-card-title [title]="title|translate" [icon]="icon"></app-card-title>
+    
+        <!-- Affichage des résumé des rapports -->
+        <div *ngIf="noResumeReport$!=0; else noResumeReport">
+            <div class="listOfResume">
+                <mat-card *ngFor="let resume of resumeReport" (click)="navigate(resume,environment.weatherType)" [class]="this.utils.getCardViewColor(resume.status,resume.result_global)">
+                    <div>
+                        <div class="info">
+                            <p class="productName">{{resume.product}}</p>
+                            <p class="version">
+                            <ng-container *ngIf="resume.version;else noVersion">{{resume.version}}</ng-container>
+                            <ng-template #noVersion>{{'noVersion'|translate}}</ng-template>
+                            </p>
+                            <p class="branchAndDate"> <i class="fas fa-code-branch"></i> {{'branch'|translate}} {{resume.branch}} -  <i class="fas fa-clock"></i> {{resume.start_date | date :'dd/MM/YY - HH:mm' }} </p>
+                        </div>
+                        <div class="buttons">
+                            <ng-container *ngIf="resume.status=='PENDING';else notPending">
+                                <div class="pending">{{'pendingType'|translate}}</div>
+                            </ng-container>
+                            <ng-template #notPending>
+                                <!-- <div (click)="navigate(resume,environment.weatherType)" [class]="this.utils.getColorButtonResult(resume.result_global)">{{environment.weatherType|titlecase}}</div> -->
+                                <div (click)="navigate(resume,environment.buildType)" [class]="this.utils.getColorButtonResult(resume.result_build)">{{environment.buildType|titlecase}}</div>
+                                <div (click)="navigate(resume,environment.deployType)" [class]="this.utils.getColorButtonResult(resume.result_deploy)">{{environment.deployTypeBis|titlecase}}</div>
+                                <div (click)="navigate(resume,environment.testType)" [class]="this.utils.getColorButtonResult(resume.result_test)">{{environment.testType|titlecase}}</div>                        
+                            </ng-template>
+                        </div>
+
+                    </div>
+                </mat-card>
+
+            </div>
+        </div>
+        
+        <!-- Message d'erreur quand aucun rapport -->
+        <ng-template #noResumeReport> 
+            <p class="errorMessage">{{'noReportSave'|translate}}</p>
+        </ng-template>
+ 
+</mat-card>

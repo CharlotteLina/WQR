@@ -1,0 +1,21 @@
+
+
+<mat-tab-group animationDuration="500ms" class="parent-tab-group" [selectedIndex]="selectedIndex">
+
+    <mat-tab label="Global">
+        <mat-card class="mainCard">
+            <ng-container *ngFor="let deployPF of report.deployPF" >
+                <app-card-header-title [report]="report" [result]="result" [previousResult]="previousResult"></app-card-header-title>
+                <app-generate-report-display-deploy-details [deployPF]="deployPF"></app-generate-report-display-deploy-details>
+            </ng-container>
+        </mat-card>
+    </mat-tab>
+    <ng-container *ngFor="let deployPF of report.deployPF" >
+        <mat-tab [label]="deployPF.pfName | replace">
+            <mat-card class="mainCard">
+                <app-card-header-title [report]="report" [result]="result" [previousResult]="previousResult"></app-card-header-title>
+            <app-generate-report-display-deploy-details [deployPF]="deployPF"></app-generate-report-display-deploy-details>
+            </mat-card>
+        </mat-tab>
+    </ng-container>
+</mat-tab-group>

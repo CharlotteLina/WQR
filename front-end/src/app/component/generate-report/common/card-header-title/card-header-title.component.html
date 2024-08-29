@@ -1,0 +1,11 @@
+<mat-card-header class="titleCardHeader">
+    <div>
+        <div class="title">
+            <div class="titleVersion">
+                    <div [class]="this.utils.getArrowCardHeaderTitle(result,'UNKNOWN') "></div>
+                <div>{{title}}</div>
+            </div>
+            <div class="titleBranchAndDate"><app-chevron-separator></app-chevron-separator><app-git-branch></app-git-branch>&nbsp; {{'branch'|translate}} : {{report.branch}} &nbsp; <app-chevron-separator></app-chevron-separator> <app-date></app-date> &nbsp;{{report.startDate | date :'dd/MM/YY - HH:mm'}}&nbsp; <app-chevron-calendar-right></app-chevron-calendar-right>&nbsp;{{report.endDate | date :'dd/MM/YY - HH:mm'}} </div>
+        </div>
+    </div>
+</mat-card-header>

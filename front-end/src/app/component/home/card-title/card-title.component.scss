@@ -1,0 +1,25 @@
+mat-card-header{
+    background-color: var(--secondary-color);
+    width: 90%;
+    border-radius:20px;
+    margin-top:1vh;
+    margin-left:2%;
+    font-weight:500;
+    height:5vh;
+}
+
+mat-card-header>div{
+    margin-top:0.5vh;
+    margin-left:1vw;
+    font-size: 1.3em;
+    line-height: 3vh;
+    color:var(--secondary-color-title);
+}
+
+mat-icon{
+    background-color:white;
+    border-radius: 50%;
+    padding: 0.5vw;
+    margin-bottom: 1vh;
+}
+

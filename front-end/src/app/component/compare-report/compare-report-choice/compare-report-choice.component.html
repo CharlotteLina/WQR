@@ -1,0 +1,72 @@
+
+
+<div class="homeTitle titleReport">{{'compared'|translate}}</div>
+
+  <app-product-selected></app-product-selected>
+
+<div class="routes"> <a [routerLink]='environment.homePath'> {{'dashboard'|translate}}</a>&nbsp;/&nbsp; <span class="currentRoute">{{'generateACompare'|translate}} </span></div>
+
+
+<div class="selectToCompare">
+<!-- Choix du produit  -->
+<section>
+    <mat-form-field class="example-full-width">
+        <mat-label>{{'product'|translate}}</mat-label>
+        <input type="text"
+               [placeholder]="'chooseProductReport'|translate"
+               aria-label="'Produit"
+               matInput
+               [formControl]="controlSelectedProductName"
+               [matAutocomplete]="autoProduct">
+        <mat-autocomplete autoActiveFirstOption #autoProduct="matAutocomplete">
+          @for (option of filteredOptionProductName ; track option) {
+            <mat-option [value]="option">{{option}}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+</section>
+
+<!-- Choix du types de comparaison  -->
+<section>
+    <mat-form-field class="example-full-width">
+        <mat-label>Type</mat-label>
+        <input type="text"
+        [placeholder]="'chooseTypeReport'|translate"
+        aria-label="Type"
+               matInput
+               [formControl]="controlSelectedReportType"
+               [matAutocomplete]="autoType">
+        <mat-autocomplete autoActiveFirstOption #autoType="matAutocomplete">
+          @for (option of filteredOptionReportType ; track option) {
+            <mat-option [value]="option">{{option}}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+</section>
+
+
+<!-- Choix des dates -->
+<section>
+<mat-form-field class="example-form-field">
+    <mat-label>{{'chooseStartAndEndDate'|translate}}</mat-label>
+    <mat-date-range-input [formGroup]="range" [rangePicker]="rangePicker">
+      <input matStartDate formControlName="start" [placeholder]="'startDate'|translate">
+      <input matEndDate formControlName="end" [placeholder]="'endDate'|translate">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+
+    <mat-date-range-picker #rangePicker>
+      <mat-date-range-picker-actions>
+        <button mat-button matDateRangePickerCancel>{{'cancel'|translate}}</button>
+        <button mat-raised-button color="primary" matDateRangePickerApply>{{'apply'|translate}}</button>
+      </mat-date-range-picker-actions>
+    </mat-date-range-picker>
+  </mat-form-field>
+</section>
+
+<!-- Choix des options -->
+ <!-- TODO -->
+
+<button mat-raised-button (click)="generateCompare()" clickable>{{'generateCompare'|translate}} &nbsp; <mat-icon>arrow_forward</mat-icon></button>
+
+</div>

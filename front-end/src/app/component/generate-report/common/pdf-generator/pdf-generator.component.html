@@ -1,0 +1,15 @@
+
+<h1 mat-dialog-title>{{'generateOfPDF'|translate}}  </h1>
+<h2>{{'report'|translate}} {{valueType|translate}}</h2>
+<div mat-dialog-actions class="closeButton">
+  <button mat-button mat-dialog-close><mat-icon>close</mat-icon></button>
+</div>
+<section *ngIf="detailOption">
+	@for (opt of option;track opt){
+		<mat-checkbox  [(ngModel)]="opt.value">{{opt.name}}</mat-checkbox>
+	}
+</section>
+<button mat-button (click)="displayPDF()" >{{'displayPDF'|translate}}</button>
+<button mat-button (click)="savePDF()">{{'savePDF'|translate}}</button>
+
+<button mat-button disabled >{{'sendEmail'|translate}}</button>

@@ -1,0 +1,99 @@
+
+#menu{
+    position: fixed;
+    top:0px;
+    left:0px;
+    height:100vh;
+    width:7vw;
+    background-color: var(--primary-color);
+}
+
+
+// CSS Logo
+#logo{
+    position: relative;
+    left:1.5vw;
+    top:5vh;
+}
+
+#logo>a>img{
+    width: 4vw;
+}
+
+
+//CSS Menu 
+.section{
+    height:35vh;
+    margin-top:15vh;
+}
+
+.iconMenu{
+    margin-top:5vh;
+    width:6vw;
+    margin-left:0.5vw;
+    text-align: center;
+}
+
+
+
+//CSS pour la navigation  
+.iconMenu:hover>a>.iconText{
+    color:var(--primary-color-title);
+}
+
+mat-icon{
+    padding:1vh;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    color:var(--primary-color-title);
+}
+
+mat-icon:hover{
+    padding:1vh;
+    background-color: var(--primary-color-title);
+    border-radius: 10px;
+    color:var(--primary-color);
+}
+
+.iconMenu>a>.iconText{
+    font-size:small;
+    color:var(--primary-color);
+
+}
+
+.iconMenu>a{
+    text-decoration: none;
+}
+
+.routeActive>mat-icon{
+    background-color: var(--primary-color-title);
+    border-radius: 10px;
+    color:var(--primary-color);
+}
+
+.routeActive>div{
+    color:var(--primary-color-title) !important;
+}
+
+
+.version{
+    width: 4vw;
+    text-align: center;
+    font-size: 0.7em;
+}
+
+
+
+.language{
+    display: flex;
+    margin-top: 35vh;
+}
+
+.language>div{
+ width: 50%;
+ text-align: center;
+ 
+ cursor:pointer;
+}
+
+

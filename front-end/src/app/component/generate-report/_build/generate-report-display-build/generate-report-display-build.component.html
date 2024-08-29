@@ -1,0 +1,17 @@
+
+<!-- Composant de génération d'un rapport de build avec les onglets -->
+    <mat-tab-group animationDuration="500ms" class="parent-tab-group" (selectedTabChange)="selectedTabChange()">
+            <ng-container *ngFor="let tab of tabs$ ">
+                <mat-tab [label]="tab.name |uppercase">
+                    <div class="insideContent">
+                        <span class="invisible">.</span>
+
+                        <app-generate-report-display-build-product [report]="tab.report" [parent]="tab.parent" [component]="tab.component" [selectedIndex]="detailIndex"></app-generate-report-display-build-product>
+                    </div>
+                </mat-tab>
+            </ng-container>
+    </mat-tab-group>
+
+
+
+

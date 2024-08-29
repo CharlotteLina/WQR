@@ -1,0 +1,58 @@
+
+<div id="menu"> 
+
+  <!-- WQR Lgo -->
+  <div id="logo">
+    <a [routerLink]="environment.choosePath" routerLinkActive="routeActive">
+      <img src="assets/images/logoWQRFav.png" alt="">
+    </a>
+    <p class="version">{{environment.versionNumber}}</p>
+  </div>
+
+  <!-- Menu  -->
+  <div class="section">
+    <div>
+      <div>
+        <!-- Navigation vers la page d'accueil -->
+        <div class="iconMenu">
+          <a [routerLink]="environment.homePath" routerLinkActive="routeActive">
+            <mat-icon>home</mat-icon>
+            <div class="iconText">{{'homeTitle'|translate}}</div>
+          </a>
+        </div>
+
+        <!-- Navigation vers la génération de rapport -->
+        <div class="iconMenu">
+          <a [routerLink]="environment.generatePath" routerLinkActive="routeActive">
+            <mat-icon>library_books</mat-icon>
+            <div class="iconText">{{'generateTitle'|translate}}</div>
+          </a>
+        </div>
+
+        <!-- Navigation vers la comparaison -->
+        <div class="iconMenu">
+          <a [routerLink]="environment.comparePath" routerLinkActive="routeActive">
+            <mat-icon>insert_chart</mat-icon>              
+            <div class="iconText">{{'compareTitle'|translate}}</div>
+          </a>
+        </div>
+
+
+        </div>
+
+      </div>
+    </div>
+    <!-- Choix de la langue -->
+    <div class="language">
+      <div (click)="changeLanguage('EN')">
+        <img width="60%" src="assets/images/englishFlag.png">
+      </div>
+      <div (click)="changeLanguage('FR')">        
+        <img width="60%" src="assets/images/frenchFlag.png">
+      </div>
+  </div>
+</div>
+
+
+
+

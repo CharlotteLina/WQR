@@ -1,0 +1,35 @@
+.mainCard{
+    width:88vw;
+    margin-left: 1vw;
+    margin-top:0.5vh;
+    border-radius: 16px;
+    padding-top:16px;
+    padding-bottom: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  
+  .allBox{
+    margin-left:1vw;
+    display: flex;
+  }
+  
+  .allBox>div>mat-card{
+    height: 100%;
+    margin-top:16px;
+  }
+  
+  .allBox>div{
+    width:33%;
+    margin-right:2%;
+    margin-top:2vh;
+    height:32vh;
+    margin-bottom: 2vh;
+  }
+  
+  
+  
+  .aContainer{
+    display: flex;
+  }
+  

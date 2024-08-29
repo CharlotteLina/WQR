@@ -1,0 +1,20 @@
+<mat-card>
+    <app-card-title [title]="'chooseProduct'|translate" icon="subject"></app-card-title>
+    <div class="chooseProduct">
+            <ng-container *ngFor="let product of allProductView ">
+                <div class="aButton" *ngIf="product.name!=environment.component">
+                    <button [value]="product.name" (click)="selectedAProduct(product.name,false)" [class]="product.class">
+                        <div class="productName">{{product.name}}</div>
+                    </button>
+
+                    <!-- Bouton permettant de créer une liste de produit selectionné  -->
+                    <!-- <ng-container *ngIf="product.selected;else notSelected">
+                        <p class="deleteProduct" (click)="selectedAProduct(product.name,true)"> - </p>
+                    </ng-container>
+                    <ng-template #notSelected>
+                        <p class="addProduct" (click)="selectedAProduct(product.name,true)">+</p>
+                    </ng-template> -->
+                </div>
+            </ng-container>
+    </div>
+</mat-card>

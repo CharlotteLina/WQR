@@ -1,0 +1,22 @@
+<!-- Page de choix d'un produit -->
+
+
+<div id="main">
+      <!-- WQR Lgo -->
+    <div id="logo">
+        <img [src]="environment.iconPath" alt="">
+    </div>
+    <!-- Choix du produit -->
+    <div id="choose">
+    <ng-container *ngIf="allProductName$ | async as allProductName">
+        <app-select-product (productEvent)="addProduct($event)" [allProductName]="allProductName" [products]="products"></app-select-product>
+    </ng-container>
+    </div>
+    <!-- Validation choix du produit -->
+    <div id="validate">
+        <button (click)="validateProduct()">{{'validateButton'|translate}}</button>
+    </div>
+    <div class="errorMessage" *ngIf="errorMessage">
+        {{'errorMessageChooseProduct'|translate}}
+    </div>
+</div>
